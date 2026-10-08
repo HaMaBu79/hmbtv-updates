@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.haidaklak.iptv'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.haidaklak.iptv"
+        minSdk 21
+        targetSdk 34
+        versionCode 9
+        versionName "1.1.6"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -fexceptions"
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../keystore_new.jks')
+            storePassword 'thehai*)(@daklak@()((krongbong@*%^hoaphong@!*3phuong'
+            keyAlias 'key0'
+            keyPassword 'thehai*)(@daklak@()((krongbong@*%^hoaphong@!*3phuong'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.22.1"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.leanback:leanback:1.0.0'
+    
+    // App Actions - built-in via play-services-assistant
+    
+    // Media3 ExoPlayer
+    def media3_version = "1.2.0"
+    implementation "androidx.media3:media3-exoplayer:$media3_version"
+    implementation "androidx.media3:media3-exoplayer-hls:$media3_version"
+    implementation "androidx.media3:media3-exoplayer-dash:$media3_version"
+    implementation "androidx.media3:media3-exoplayer-rtsp:$media3_version"
+    implementation "androidx.media3:media3-ui:$media3_version"
+
+    // Glide for Image Loading
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
+    // Android TV Home Screen Channels
+    implementation 'androidx.tvprovider:tvprovider:1.0.0'
+
+    // Room Database - Cache danh sách kênh, tránh tải lại M3U mỗi lần mở app
+    def room_version = "2.6.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+}
