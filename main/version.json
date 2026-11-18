@@ -1,8 +1,8 @@
 {
-  "versionCode": 0,
-  "versionName": "0.0.0",
-  "apkUrl": "https://raw.githubusercontent.com/HaMaBu79/hmbtv-updates/refs/heads/main/updateapk/HMBTIVI-v15(3.0.0).apk",
-  "updateNote": "Phiên bản 3.0.0 - Bắt buộc cập nhật đẻ tălng cường bảo mật app và độ ổn định",
+  "versionCode": 15,
+  "versionName": "3.0.0",
+  "apkUrl": "https://raw.githubusercontent.com/HaMaBu79/hmbtv-updates/refs/heads/main/updateapk/HMBTIVI_V15(3.0.0).apk",
+  "updateNote": "Phiên bản 3.0.0 - Bắt buộc cập nhật đẻ tăng cường bảo mật app và độ ổn định",
   "forceUpdate": true,
   "publishedAt": "2026-11-18T20:50:00+07:00"
 }
